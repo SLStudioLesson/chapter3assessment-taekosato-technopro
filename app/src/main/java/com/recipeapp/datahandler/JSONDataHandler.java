@@ -2,7 +2,7 @@ package main.java.com.recipeapp.datahandler;
 
 import java.util.ArrayList;
 
-import com.recipeapp.model.Recipe;
+import main.java.com.recipeapp.model.Recipe;
 
 public class JSONDataHandler implements  DataHandler{
     @Override
@@ -12,16 +12,16 @@ public class JSONDataHandler implements  DataHandler{
     }
 
     @Override
-    public ArrayList<Recipe> readData() throws IOExceprion {
+    public ArrayList<Recipe> readData() throws IOException {
         return null;
     }
 
-    // @Override
-    // public void writeData(Recipe recipe) throws IOExceprion {
-    // }
+    @Override
+    public void writeData(Recipe recipe) throws IOException {
+    }
 
     @Override
-    public ArrayList<Recipe> searchData(String keyword) throws IOExceprion {
+    public ArrayList<Recipe> searchData(String keyword) throws IOException {
         return null;
     }
 }

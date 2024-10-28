@@ -3,11 +3,12 @@ package com.recipeapp.ui;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+import main.java.com.recipeapp.model.Recipe;
 import main.java.com.recipeapp.datahandler.DataHandler;
-import com.recipeapp.model.Recipe;
 
 public class RecipeUI {
     private BufferedReader reader;
@@ -56,7 +57,7 @@ public class RecipeUI {
     }
 
     private void displayRecipes() {
-        List<String> recipes = dataHandler.readData();
+        ArrayList<Recipe> recipes = dataHandler.readData();
         if (recipes.isEmpty()) {
             System.out.println("No recipes available.");
             return;
@@ -64,12 +65,9 @@ public class RecipeUI {
         System.out.println();
         System.out.println("Recipes:");
         System.out.println("-----------------------------------");
-        for (String recipe : recipes) {
-            String[] parts = recipe.split(",", 2);
-            System.out.println("Recipe Name: " + parts[0]);
-            if (parts.length > 1) {
-                System.out.println("Main Ingredients: " + parts[1]);
-            }
+        for (Recipe recipe : recipes) {
+            System.out.println("Recipe Name: " + recipe.getName());
+            System.out.println("Main Ingredients: " + recipe.getIngredients());
             System.out.println("-----------------------------------");
         }
     }
