@@ -1,6 +1,6 @@
-import com.recipeapp.datahandler.CSVDataHandler;
-import com.recipeapp.datahandler.DataHandler;
-import com.recipeapp.datahandler.JSONDataHandler;
+import main.java.com.recipeapp.datahandler.CSVDataHandler;
+import main.java.com.recipeapp.datahandler.DataHandler;
+import main.java.com.recipeapp.datahandler.JSONDataHandler;
 import com.recipeapp.ui.RecipeUI;
 import java.io.*;
 
@@ -14,6 +14,16 @@ public class App {
             System.out.println("2. JSON");
             System.out.print("Select (1/2): ");
             String choice = reader.readLine();
+            // ユーザーの選択に応じて、インスタンスを生成する
+            if("2".equals(choice)) {
+                DataHandler json = new JSONDataHandler();
+                RecipeUI ui = new RecipeUI(json);
+                ui.displayMenu();
+            } else {
+                DataHandler csv = new CSVDataHandler();
+                RecipeUI ui = new RecipeUI(csv);
+                ui.displayMenu();
+            }
             
 
         } catch (Exception e) {
